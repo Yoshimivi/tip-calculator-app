@@ -52,8 +52,6 @@ useEffect(() => {
     return e
   }
 
-  console.log(billValue)
-
   return (
     <Container>
       <FirstBox>
