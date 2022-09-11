@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Space Mono', monospace;
+}
+
+:root {
+  --strong-cyan-primary:  hsl(172, 67%, 45%);
+
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 26%, 38%);
+  --grayish-cyan: hsl(187, 28%, 55%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(180, 37%, 90%);
+}
+
+body {
+  background-color: var(--light-grayish-cyan);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.App {
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 375px) {
+  body {
+    width: 100vw;
+  }
+
+ .App {
+  padding-top: 50px;
+ }   
+}
