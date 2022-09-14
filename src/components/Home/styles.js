@@ -2,13 +2,19 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   width: fit-content;
-  background-color: white;
+  background-color: ${props => props.theme.colors.containerColor};
   display: flex;
   border-radius: 20px;
   padding: 30px;
   margin: 80px auto;
 
   @media (max-width: 375px) {
+    flex-direction: column;
+    width: 100%;
+    margin: 50px 0;
+  }
+
+  @media (max-width: 850px){
     flex-direction: column;
     width: 100%;
     margin: 50px 0;
@@ -22,13 +28,17 @@ export const FirstBox = styled.div`
   @media (max-width: 375px) {
     width: 100%;
   }
+
+  @media (max-width: 850px){
+    width: 100%;
+  }
 `
 
 export const InputBox = styled.div`
   position: relative;
 
   p {
-    color: var(--dark-grayish-cyan);
+    color: ${props => props.theme.colors.textColor};
     font-weight: 700;
   }
 
@@ -36,7 +46,7 @@ export const InputBox = styled.div`
     position: absolute;
     right: 0;
     top: 5px;
-    color: red;
+    color: ${props => props.theme.colors.error};
     font-size: 14px;
   }
 
@@ -50,24 +60,25 @@ export const InputBox = styled.div`
     width: 100%;
     border: none;
     border-radius: 5px;
-    background-color: var(--very-light-grayish-cyan);
+    background-color: ${props => props.theme.colors.inputBackground};
+    color: ${props => props.theme.colors.textPrimary};
     padding: 10px;
     margin-top: 5px;
     font-size: 20px;
     font-weight: 700;
 
     &:focus {
-      outline: var(--strong-cyan-primary) solid 2px;
+      outline: ${props => props.theme.colors.primary} solid 2px;
     }
 
     &.valueError {
-      outline: red solid 2px;
+      outline: ${props => props.theme.colors.error} solid 2px;
       
     }
 
     &::placeholder {
       text-align: right;
-      color: var(--grayish-cyan);
+      color: ${props => props.theme.colors.textPlaceholder};
     }
 
     &::-webkit-outer-spin-button,
@@ -82,17 +93,13 @@ export const InputBox = styled.div`
     left: 15px;
     top: 3px;
   }
-
-  @media (max-width: 375px) {
-    
-  }
 `
 
 export const TipBox = styled.div`
   margin-block: 25px 20px;
 
   p {
-    color: var(--dark-grayish-cyan);
+    color: ${props => props.theme.colors.textColor};
     font-weight: 700;
     margin-bottom: 10px;
   }
@@ -108,29 +115,29 @@ export const TipBox = styled.div`
   button {
     display: grid;
     place-items: center;
-    background-color: var(--very-dark-cyan);
+    background-color: ${props => props.theme.colors.secondary};
     font-weight: 700;
     font-size: 22px;
-    color: white;
+    color: ${props => props.theme.colors.textSecondary};
     height: 47px;
     border: none;
     border-radius: 5px;
     flex-basis: 30%;
 
     @media (max-width: 375px) {
-    flex-basis: 47%;
+      flex-basis: 47%;
     }
 
     &:hover {
       cursor: pointer;
-      background-color: var(--grayish-cyan);
-      color: var(--very-dark-cyan);
+      background-color: ${props => props.theme.colors.terciary};
+      color: ${props => props.theme.colors.secondary};
     }
   }
 
   button.active {
-    background-color: var(--strong-cyan-primary);
-    color: var(--very-dark-cyan);
+    background-color: ${props => props.theme.colors.primary};
+    color: ${props => props.theme.colors.secondary};
   }
 
   input {
@@ -139,24 +146,25 @@ export const TipBox = styled.div`
     height: 47px;
     border: none;
     border-radius: 5px;
+    color: ${props => props.theme.colors.textPrimary};
     text-align: right;
     padding: 13px;
     flex-basis: 30%;
     font-weight: 700;
     font-size: 22px;
-    background-color: var(--very-light-grayish-cyan);
+    background-color: ${props => props.theme.colors.inputBackground};
 
     @media (max-width: 375px) {
-    width: 150px;
+    flex-basis: 47%;
   }
 
     &:focus {
-      outline: var(--strong-cyan-primary) solid 2px;
+      outline: ${props => props.theme.colors.primary} solid 2px;
     }
 
     &::placeholder {
       text-align: center;
-      color: var(--dark-grayish-cyan);  
+      color: ${props => props.theme.colors.textPlaceholder};  
     }
 
     &::-webkit-outer-spin-button,
@@ -168,7 +176,7 @@ export const TipBox = styled.div`
 `
 
 export const SecondBox = styled.div`
-  background-color: var(--very-dark-cyan);
+  background-color: ${props => props.theme.colors.secondary};
   border-radius: 9px;
   padding: 35px;
   width: 380px;
@@ -178,24 +186,29 @@ export const SecondBox = styled.div`
     margin-top: 25px;
   }
 
+  @media (max-width: 850px){
+    width: 100%;
+    margin-top: 25px;
+  }
+
   div {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     h3 {
-      color: white;
+      color: ${props => props.theme.colors.textSecondary};
       font-size: 17px;
       align-self: flex-end;
     }
 
     p {
-      color: var(--grayish-cyan);
+      color: ${props => props.theme.colors.terciary};
       font-weight: 700;
       font-size: 13px;
     }
 
     span {
-      color: var(--strong-cyan-primary);
+      color: ${props => props.theme.colors.primary};
       font-size: 42px;
       font-weight: 700;
       grid-column: 2;
@@ -205,29 +218,29 @@ export const SecondBox = styled.div`
   }
 
   button {
-    background-color: var(--strong-cyan-primary);
+    background-color: ${props => props.theme.colors.primary};
     width: 100%;
     height: 50px;
-    color: var(--very-dark-cyan);
+    color: ${props => props.theme.colors.secondary};
     font-size: 20px;
     font-weight: 700;
     border: none;
     border-radius: 7px;
     margin-top: 120px;
 
-    @media (max-width: 375px) {
+    @media (max-width: 850px) {
     margin-top: 30px;
-  }
+    }
 
     &:disabled,
     &:disabled:hover {
       opacity: 0.3;
       cursor: initial;
-      background-color: var(--strong-cyan-primary);
+      background-color: ${props => props.theme.colors.primary};
     }
 
     &:hover {
-      background-color: var(--light-grayish-cyan);
+      background-color: ${props => props.theme.colors.resetHover};
       cursor: pointer;
     }
   }

@@ -85,7 +85,8 @@ useEffect(() => {
             onClick={e => handleSetPercentage(0.5)}
             >50%</button>
             <input type="number" id="customInput" placeholder="Custom"  
-            value={billValue.tipPercentageCustom === '' ? '' : billValue.tipPercentageCustom}
+            value={billValue.tipPercentageCustom??''}
+            // value={billValue.tipPercentageCustom === '' ? '' : billValue.tipPercentageCustom}
             onClick={e => setBillValue(prevBillValue => ({...prevBillValue, tipPercentageButton: ''}))}
             onChange={e => handleTipCustomAndMask(e)}
             />
